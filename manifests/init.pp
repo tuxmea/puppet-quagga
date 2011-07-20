@@ -29,7 +29,7 @@ class quagga {
 	if $quagga_daemons_conf != undef {
 		file { 'quagga_daemons_conf':
 			name	=> $quagga::params::quagga_daemons_conf,
-			content	=> template('quagga_daemons.conf.erb'),
+			content	=> template('quagga/quagga_daemons.conf.erb'),
 			owner 	=> root,
 			group 	=> root,
 			mode	=> 644,
@@ -38,7 +38,7 @@ class quagga {
 	if $quagga_zebra_conf != undef {
 		file { 'quagga_zebra_conf':
 			name	=> $quagga::params::quagga_zebra_conf,
-			content	=> template('quagga_zebra.conf.erb'),
+			content	=> template('quagga/quagga_zebra.conf.erb'),
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
@@ -46,8 +46,8 @@ class quagga {
 	}
 	if $quagga_debian_conf != undef {
 		file { 'quagga_debian_conf':
-			name	=> $quagga:params::quagga_debian_conf,
-			content	=> template('quagga_debian.conf.erb'),
+			name	=> $quagga::params::quagga_debian_conf,
+			content	=> template('quagga/quagga_debian.conf.erb'),
 			owner 	=> root,
 			group	=> root,
 			mode	=> 644,
@@ -56,8 +56,8 @@ class quagga {
 	if $quagga::params::vtysh == 'yes' {
 		file { 'quagga_vtysh_conf':
 			name	=> $quagga::params::quagga_vtysh_conf,
-			content	=> template('quagga_vtysh.conf.erb'),
-			owner	=> $quagga::params::owner
+			content	=> template('quagga/quagga_vtysh.conf.erb'),
+			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 660,
 		}
@@ -65,7 +65,7 @@ class quagga {
 	if $quagga::params::bgpd == 'yes' {
 		file { 'quagga_bgpd_conf':
 			name	=> $quagga::params::quagga_bgpd_conf,
-			content	=> template('quagga_bgpd.conf.erb'),
+			content	=> template('quagga/quagga_bgpd.conf.erb'),
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
@@ -74,7 +74,7 @@ class quagga {
 	if $quagga::params::ospfd == 'yes' {
 		file { 'quagga_ospfd_conf':
 			name	=> $quagga::params::quagga_ospfd_conf,
-			content	=> template('quagga_ospfd.conf.erb'),
+			content	=> template('quagga/quagga_ospfd.conf.erb'),
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
@@ -83,7 +83,7 @@ class quagga {
 	if $quagga::params::ospf6d == 'yes' {
 		file { 'quagga_ospf6d_conf':
 			name	=> $quagga::params::quagga_ospf6d_conf,
-			content	=> template('quagga_ospf6d.conf.erb'),
+			content	=> template('quagga/quagga_ospf6d.conf.erb'),
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
@@ -92,25 +92,25 @@ class quagga {
 	if $quagga::params::ripd == 'yes' {
 		file { 'quagga_ripd_conf':
 			name	=> $quagga::params::quagga_ripd_conf,
-			content	=> template('quagga_ripd.conf.erb'),
+			content	=> template('quagga/quagga_ripd.conf.erb'),
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
 		}
 	}
-	if $quagga::params::ripngd = 'yes' {
+	if $quagga::params::ripngd == 'yes' {
 		file { 'quagga_ripngd_conf':
 			name	=> $quagga::params::quagga_ripngd_conf,
-			content	=> template('quagga_ripngd.conf.erb'),
+			content	=> template('quagga/quagga_ripngd.conf.erb'),
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
 		}
 	}
-	if $quagga::params::isisd = 'yes' {
+	if $quagga::params::isisd == 'yes' {
 		file { 'quagga_isisd_conf':
 			name	=> $quagga::params::quagga_isisd_conf,
-			content	=> template('quagga_isisd.conf.erb'),
+			content	=> template('quagga/quagga_isisd.conf.erb'),
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,

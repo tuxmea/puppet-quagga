@@ -15,9 +15,9 @@
 #
 class quagga::params {
 
-	$owner		= quagga
-	$group		= quagga
-	$quagga_name	= quagga
+	$owner		= 'quagga'
+	$group		= 'quagga'
+	$quagga_name	= 'quagga'
 	$zebra		= 'yes'
 	$vtysh		= 'yes'
 	$bgpd		= 'yes'
