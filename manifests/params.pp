@@ -18,6 +18,13 @@ class quagga::params {
 	$user		= quagga
 	$group		= quagga
 	$quagga_name	= quagga
+	$zebra		= true
+	$bgpd		= false
+	$ospfd		= false
+	$ospfd64	= false
+	$ripd		= false
+	$ripngd		= false
+	$isisd		= false
 
 	case $operatingsystem {
 		'ubuntu','debian': {
@@ -26,6 +33,11 @@ class quagga::params {
 			$quagga_debian_conf	= '/etc/quagga/debian.conf'
 			$quagga_zebra_conf	= '/etc/quagga/zebra.conf'
 			$quagga_bgp_conf	= '/etc/quagga/bgpd.conf'
+			$quagga_ospfd_conf	= '/etc/quagga/ospfd.conf'
+			$quagga_ospf6d_conf	= '/etc/quagga/opsf6d.conf'
+			$quagga_ripd_conf	= '/etc/quagga/ripd.conf'
+			$quagga_ripngd_conf	= '/etc/quagga/ripngd.conf'
+			$quagga_isisd_conf	= '/etc/quagga/isisd.conf'
 		}
 	}
 }
