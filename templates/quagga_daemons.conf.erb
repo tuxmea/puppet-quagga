@@ -1,4 +1,4 @@
-# file <% =$name %>
+# file <%= name %>
 # managed by puppet
 #
 # This file tells the quagga package which daemons to start.
@@ -21,11 +21,11 @@
 # When using "vtysh" such a config file is also needed. It should be owned by
 # group "quaggavty" and set to ug=rw,o= though. Check /etc/pam.d/quagga, too.
 #
-zebra=<%= quagga::params::zebra %>
-bgpd=<%= quagga::params::bgpd %>
-ospfd=<%= quagga::params::ospfd %>
-ospf6d=<%= quagga::params::ospf6d %>
-ripd=<%= quagga::params::ripd %>
-ripngd=<%= quagga::params::ripngd %>
-isisd=<%= quagga::params::isisd %>
+zebra=<%= scope.lookupvar('quagga::params::zebra') %>
+bgpd=<%= scope.lookupvar('quagga::params::bgpd') %>
+ospfd=<%= scope.lookupvar('quagga::params::ospfd') %>
+ospf6d=<%= scope.lookupvar('quagga::params::ospf6d') %>
+ripd=<%= scope.lookupvar('quagga::params::ripd') %>
+ripngd=<%= scope.lookupvar('quagga::params::ripngd') %>
+isisd=<%= scope.lookupvar('quagga::params::isisd') %>
 

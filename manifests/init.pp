@@ -26,7 +26,7 @@ class quagga {
 		subscribe	=> Package['quagga'],
 	}
 
-	if $quagga_daemons_conf != undef {
+	if $quagga::params::quagga_daemons_conf != undef {
 		file { 'quagga_daemons_conf':
 			name	=> $quagga::params::quagga_daemons_conf,
 			content	=> template('quagga/quagga_daemons.conf.erb'),
@@ -35,7 +35,7 @@ class quagga {
 			mode	=> 644,
 		}
 	}
-	if $quagga_zebra_conf != undef {
+	if $quagga::params::quagga_zebra_conf != undef {
 		file { 'quagga_zebra_conf':
 			name	=> $quagga::params::quagga_zebra_conf,
 			content	=> template('quagga/quagga_zebra.conf.erb'),
@@ -44,7 +44,7 @@ class quagga {
 			mode	=> 640,
 		}
 	}
-	if $quagga_debian_conf != undef {
+	if $quagga::params::quagga_debian_conf != undef {
 		file { 'quagga_debian_conf':
 			name	=> $quagga::params::quagga_debian_conf,
 			content	=> template('quagga/quagga_debian.conf.erb'),
