@@ -1,0 +1,29 @@
+! file <% =$name %>
+! managed by puppet
+!
+log syslog
+!
+router bgp <as number>
+ bgp router-id <router ip>
+ bgp graceful-restart
+ aggregate-address <bgp address/netmask> summary-only
+ redistribute connected
+ neighbor <neighbor1 ip> remote-as <as number>
+ neighbor <neighbor1 ip> route-map filter-in in
+ neighbor <neighbor1 ip route-map filter-out out
+ neighbor <neighbor1 ip> remote-as <as number>
+ neighbor <neighbor2 ip> route-map filter-in in
+ neighbor <neighbor2 ip> route-map filter-out out
+!
+ip prefix-list export-prefixes seq 10 permit <bgp ip/netmask>
+!
+route-map filter-in deny 10
+!
+route-map filter-out permit 10
+ match ip address prefix-list export-prefixes
+ set metric 0
+!
+route-map filter-out deny 30
+!
+line vty
+!
