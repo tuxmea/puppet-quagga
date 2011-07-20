@@ -18,13 +18,13 @@ class quagga::params {
 	$user		= quagga
 	$group		= quagga
 	$quagga_name	= quagga
-	$zebra		= true
-	$bgpd		= false
-	$ospfd		= false
-	$ospfd64	= false
-	$ripd		= false
-	$ripngd		= false
-	$isisd		= false
+	$zebra		= 'yes'
+	$bgpd		= 'no'
+	$ospfd		= 'no'
+	$ospfd64	= 'no'
+	$ripd		= 'no'
+	$ripngd		= 'no'
+	$isisd		= 'no'
 
 	case $operatingsystem {
 		'ubuntu','debian': {

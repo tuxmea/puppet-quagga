@@ -53,7 +53,7 @@ class quagga {
 			mode	=> 644,
 		}
 	}
-	if defined(${quagga_bgpd_conf}) {
+	if (${quagga::params::bgpd} = 'yes') {
 		file { 'quagga_bgpd_conf':
 			name	=> ${quagga::params::quagga_bgpd_conf},
 			content	=> template(quagga_bgpd.conf),
@@ -62,7 +62,7 @@ class quagga {
 			mode	=> 640,
 		}
 	}
-	if defined(${quagga_ospfd_conf}) {
+	if (${quagga::params::ospfd} = 'yes') {
 		file { 'quagga_ospfd_conf':
 			name	=> ${quagga::params::quagga_ospfd_conf},
 			content	=> template(quagga_ospfd.conf),
@@ -71,7 +71,7 @@ class quagga {
 			mode	=> 640,
 		}
 	}
-	if defined(${quagga_ospf6d_conf}) {
+	if (${quagga::params::ospf6d} = 'yes') {
 		file { 'quagga_ospf6d_conf':
 			name	=> ${quagga::params::quagga_ospf6d_conf},
 			content	=> template(quagga_ospf6d.conf),
@@ -80,7 +80,7 @@ class quagga {
 			mode	=> 640,
 		}
 	}
-	if defined(${quagga_ripd_conf}) {
+	if (${quagga::params::ripd}) {
 		file { 'quagga_ripd_conf':
 			name	=> ${quagga::params::quagga_ripd_conf},
 			content	=> template(quagga_ripd.conf),
@@ -89,7 +89,7 @@ class quagga {
 			mode	=> 640,
 		}
 	}
-	if defined(${quagga_ripngd_conf}) {
+	if (${quagga::params::ripngd} = 'yes') {
 		file { 'quagga_ripngd_conf':
 			name	=> ${quagga::params::quagga_ripngd_conf},
 			content	=> template(quagga_ripngd.conf),
@@ -98,7 +98,7 @@ class quagga {
 			mode	=> 640,
 		}
 	}
-	if defined(${quagga_isisd_conf}) {
+	if (${quagga::params::isisd} = 'yes') {
 		file { 'quagga_isisd_conf':
 			name	=> ${quagga::params::quagga_isisd_conf},
 			content	=> template(quagga_isisd.conf),
