@@ -33,6 +33,7 @@ class quagga {
 			owner 	=> root,
 			group 	=> root,
 			mode	=> 644,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::quagga_zebra_conf != undef {
@@ -42,6 +43,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::quagga_debian_conf != undef {
@@ -51,6 +53,7 @@ class quagga {
 			owner 	=> root,
 			group	=> root,
 			mode	=> 644,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::vtysh == 'yes' {
@@ -60,6 +63,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 660,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::bgpd == 'yes' {
@@ -69,6 +73,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::ospfd == 'yes' {
@@ -78,6 +83,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::ospf6d == 'yes' {
@@ -87,6 +93,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::ripd == 'yes' {
@@ -96,6 +103,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::ripngd == 'yes' {
@@ -105,6 +113,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
+			notify	=> Service['quagga'],
 		}
 	}
 	if $quagga::params::isisd == 'yes' {
@@ -114,6 +123,7 @@ class quagga {
 			owner	=> $quagga::params::owner,
 			group	=> $quagga::params::group,
 			mode	=> 640,
+			notify	=> Service['quagga'],
 		}
 	}
 }
