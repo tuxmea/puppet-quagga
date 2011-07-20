@@ -19,7 +19,8 @@ class quagga::params {
 	$group		= quagga
 	$quagga_name	= quagga
 	$zebra		= 'yes'
-	$bgpd		= 'no'
+	$vtysh		= 'yes'
+	$bgpd		= 'yes'
 	$ospfd		= 'no'
 	$ospfd64	= 'no'
 	$ripd		= 'no'
@@ -32,6 +33,7 @@ class quagga::params {
 			$quagga_daemons_conf	= '/etc/quagga/daemons'
 			$quagga_debian_conf	= '/etc/quagga/debian.conf'
 			$quagga_zebra_conf	= '/etc/quagga/zebra.conf'
+			$quagga_vtysh_conf	= '/etc/quagga/vtysh.conf'
 			$quagga_bgp_conf	= '/etc/quagga/bgpd.conf'
 			$quagga_ospfd_conf	= '/etc/quagga/ospfd.conf'
 			$quagga_ospf6d_conf	= '/etc/quagga/opsf6d.conf'
