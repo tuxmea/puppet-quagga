@@ -1,0 +1,16 @@
+! file <%= scope.lookupvar('quagga::params::quagga_ospfd_conf') %>
+! managed by puppet
+! -*- ospf -*-
+!
+! OSPFd sample configuration file
+!
+!
+hostname ospfd
+password zebra
+!enable password please-set-at-here
+!
+!router ospf
+!  network 192.168.1.0/24 area 0
+!
+log stdout
+!
