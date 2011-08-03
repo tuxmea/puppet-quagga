@@ -1,0 +1,16 @@
+puppet-quagga module
+
+This module installs and maintains quagga package, service and configuration files.
+
+manifests/params.pp - sets parameters for Linux distributions
+manifest/init.pp - install package and maintains service.
+			- checks for some common configuration files
+manifest/test.pp - example usage and testing
+manifest/*.pp - definitions for quagga service configuration files
+
+templates/* - templates for all configuration files.
+
+TODO:
+
+common configuration files needs some tweakage to get used in combination with defines.
+
