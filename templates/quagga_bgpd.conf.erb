@@ -3,19 +3,16 @@
 !
 log syslog
 !
-router bgp <as number>
- bgp router-id <router ip>
+router bgp <%= asnumber %>
+ bgp router-id <%= bgpip %>
  bgp graceful-restart
- aggregate-address <bgp address/netmask> summary-only
+ aggregate-address <%= bgpaddress -%> summary-only
  redistribute connected
- neighbor <neighbor1 ip> remote-as <as number>
- neighbor <neighbor1 ip> route-map filter-in in
- neighbor <neighbor1 ip route-map filter-out out
- neighbor <neighbor1 ip> remote-as <as number>
- neighbor <neighbor2 ip> route-map filter-in in
- neighbor <neighbor2 ip> route-map filter-out out
+ neighbor <%= routerip -%> remote-as <%= asnumber %>
+ neighbor <%= routerip -%> route-map filter-in in
+ neighbor <%= routerip -%> route-map filter-out out
 !
-ip prefix-list export-prefixes seq 10 permit <bgp ip/netmask>
+ip prefix-list export-prefixes seq 10 permit <%= bgpaddress %>
 !
 route-map filter-in deny 10
 !
