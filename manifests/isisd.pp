@@ -1,6 +1,6 @@
 define quagga::isisd {
 
-	require quagga
+	include quagga
 
 	file { 'quagga_isisd_conf':
 		name    => $quagga::params::quagga_isisd_conf,
@@ -8,6 +8,7 @@ define quagga::isisd {
 		owner   => $quagga::params::owner,
 		group   => $quagga::params::group,
 		mode    => 640,
+		notify  => Service['quagga'],
 	}
 
 }

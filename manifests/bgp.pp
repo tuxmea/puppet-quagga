@@ -1,6 +1,6 @@
 define quagga::bgp ( $asnumber, $bgpip, $bgpaddress, $routerip) {
 
-	require quagga
+	include quagga
 
 	file { 'quagga_bgpd_conf':
 		name    => $quagga::params::quagga_bgpd_conf,
@@ -8,7 +8,7 @@ define quagga::bgp ( $asnumber, $bgpip, $bgpaddress, $routerip) {
 		owner   => $quagga::params::owner,
 		group   => $quagga::params::group,
 		mode    => 640,
-		#notify  => Service['quagga'],
+		notify  => Service['quagga'],
 	}
 
 }

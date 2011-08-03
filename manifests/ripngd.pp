@@ -1,6 +1,6 @@
 define quagga::ripngd {
 
-	require quagga
+	include quagga
 
 	file { 'quagga_ripngd_conf':
 		name    => $quagga::params::quagga_ripngd_conf,
@@ -8,6 +8,7 @@ define quagga::ripngd {
 		owner   => $quagga::params::owner,
 		group   => $quagga::params::group,
 		mode    => 640,
+		notify  => Service['quagga'],
 	}
 
 }

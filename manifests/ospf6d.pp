@@ -1,6 +1,6 @@
 define quagga::ospf6d {
 
-	require quagga
+	include quagga
 
 	file { 'quagga_ospf6d_conf':
 		name    => $quagga::params::quagga_ospf6d_conf,
@@ -8,6 +8,7 @@ define quagga::ospf6d {
 		owner   => $quagga::params::owner,
 		group   => $quagga::params::group,
 		mode    => 640,
+		notify  => Service['quagga'],
 	}
 
 }
